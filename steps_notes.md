@@ -6,11 +6,7 @@
 
  OBS: Channels can be used twice on DSL2, and are automatically forked, so all channels need to be revised and explicit forks need to be removed.
 
- Executing process:
-
-
-
-
+ I'm using sample fastq from NCBI SRA of[Escherichia coli](https://www.ncbi.nlm.nih.gov/sra/SRX10122872[accn]) to test the Bactopia pipeline, i'll run with the -with-dag to generate dag files and analyse the whole data process inside bactopia workflow,
 
 
 ## 2 Step: Update all modules inclusion
