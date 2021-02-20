@@ -1,0 +1,182 @@
+digraph "dag" {
+p0 [shape=point,label="",fixedsize=true,width=0.1];
+p1 [label="gather_fastqs"];
+p0 -> p1;
+
+p1 [label="gather_fastqs"];
+p2 [label="fastq_status"];
+p1 -> p2 [label="FASTQ_PE_STATUS"];
+
+p2 [label="fastq_status"];
+p3 [label="estimate_genome_size"];
+p2 -> p3 [label="ESTIMATE_GENOME_SIZE"];
+
+p3 [label="estimate_genome_size"];
+p4 [label="qc_reads"];
+p3 -> p4 [label="QC_READS"];
+
+p3 [label="estimate_genome_size"];
+p5 [label="qc_original_summary"];
+p3 -> p5 [label="QC_ORIGINAL_SUMMARY"];
+
+p4 [label="qc_reads"];
+p14 [label="count_31mers"];
+p4 -> p14 [label="COUNT_31MERS"];
+
+p4 [label="qc_reads"];
+p18 [label="ariba_analysis"];
+p4 -> p18 [label="ARIBA_ANALYSIS"];
+
+p4 [label="qc_reads"];
+p19 [label="minmer_sketch"];
+p4 -> p19 [label="MINMER_SKETCH"];
+
+p4 [label="qc_reads"];
+p23 [label="call_variants"];
+p4 -> p23 [label="CALL_VARIANTS"];
+
+p4 [label="qc_reads"];
+p45 [label="mapping_query"];
+p4 -> p45 [label="MAPPING_QUERY"];
+
+p4 [label="qc_reads"];
+p7 [label="assemble_genome"];
+p4 -> p7 [label="ASSEMBLY"];
+
+p4 [label="qc_reads"];
+p6 [label="qc_final_summary"];
+p4 -> p6 [label="QC_FINAL_SUMMARY"];
+
+p7 [label="assemble_genome"];
+p16 [label="sequence_type"];
+p7 -> p16 [label="SEQUENCE_TYPE"];
+
+p7 [label="assemble_genome"];
+p10 [label="make_blastdb"];
+p7 -> p10 [label="MAKE_BLASTDB"];
+
+p7 [label="assemble_genome"];
+p13 [label="annotate_genome"];
+p7 -> p13 [label="ANNOTATION"];
+
+p7 [label="assemble_genome"];
+p9 [label="assembly_qc"];
+p7 -> p9 [label="ASSEMBLY_QC"];
+
+p8 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.fromList"];
+p9 [label="assembly_qc"];
+p8 -> p9;
+
+p10 [label="make_blastdb"];
+p36 [label="blast_genes"];
+p10 -> p36 [label="BLAST_GENES"];
+
+p10 [label="make_blastdb"];
+p39 [label="blast_primers"];
+p10 -> p39 [label="BLAST_PRIMERS"];
+
+p10 [label="make_blastdb"];
+p42 [label="blast_proteins"];
+p10 -> p42 [label="BLAST_PROTEINS"];
+
+p11 [shape=point,label="",fixedsize=true,width=0.1];
+p13 [label="annotate_genome"];
+p11 -> p13 [label="prokka_proteins"];
+
+p12 [shape=point,label="",fixedsize=true,width=0.1];
+p13 [label="annotate_genome"];
+p12 -> p13 [label="prodigal_tf"];
+
+p13 [label="annotate_genome"];
+p33 [label="plasmid_blast"];
+p13 -> p33 [label="PLASMID_BLAST"];
+
+p13 [label="annotate_genome"];
+p30 [label="antimicrobial_resistance"];
+p13 -> p30 [label="ANTIMICROBIAL_RESISTANCE"];
+
+p15 [shape=point,label="",fixedsize=true,width=0.1];
+p16 [label="sequence_type"];
+p15 -> p16;
+
+p17 [shape=point,label="",fixedsize=true,width=0.1];
+p18 [label="ariba_analysis"];
+p17 -> p18;
+
+p19 [label="minmer_sketch"];
+p21 [label="minmer_query"];
+p19 -> p21 [label="MINMER_QUERY"];
+
+p19 [label="minmer_sketch"];
+p25 [label="download_references"];
+p19 -> p25 [label="DOWNLOAD_REFERENCES"];
+
+p20 [shape=point,label="",fixedsize=true,width=0.1];
+p21 [label="minmer_query"];
+p20 -> p21;
+
+p22 [shape=point,label="",fixedsize=true,width=0.1];
+p23 [label="call_variants"];
+p22 -> p23;
+
+p24 [shape=point,label="",fixedsize=true,width=0.1];
+p25 [label="download_references"];
+p24 -> p25 [label="refseq_sketch"];
+
+p25 [label="download_references"];
+p26 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="map"];
+p25 -> p26 [label="CALL_VARIANTS_AUTO"];
+
+p26 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="map"];
+p27 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="flatMap"];
+p26 -> p27;
+
+p27 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="flatMap"];
+p28 [label="call_variants_auto"];
+p27 -> p28;
+
+p29 [shape=point,label="",fixedsize=true,width=0.1];
+p30 [label="antimicrobial_resistance"];
+p29 -> p30;
+
+p31 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.from"];
+p32 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="toList"];
+p31 -> p32;
+
+p32 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="toList"];
+p33 [label="plasmid_blast"];
+p32 -> p33;
+
+p34 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.from"];
+p35 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p34 -> p35;
+
+p35 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p36 [label="blast_genes"];
+p35 -> p36;
+
+p37 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.from"];
+p38 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p37 -> p38;
+
+p38 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p39 [label="blast_primers"];
+p38 -> p39;
+
+p40 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.from"];
+p41 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p40 -> p41;
+
+p41 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p42 [label="blast_proteins"];
+p41 -> p42;
+
+p43 [shape=point,label="",fixedsize=true,width=0.1,xlabel="Channel.from"];
+p44 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p43 -> p44;
+
+p44 [shape=circle,label="",fixedsize=true,width=0.1,xlabel="collect"];
+p45 [label="mapping_query"];
+p44 -> p45;
+
+}
