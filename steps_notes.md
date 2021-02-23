@@ -6,12 +6,20 @@
 
  OBS: Channels can be used twice on DSL2, and are automatically forked, so all channels need to be revised and explicit forks need to be removed.
 
- I'm using sample fastq from NCBI SRA of[Escherichia coli](https://www.ncbi.nlm.nih.gov/sra/SRX10122872[accn]) to test the Bactopia pipeline, i'll run with the -with-dag to generate dag files and analyse the whole data process inside bactopia workflow,
+ I'm using sample fastq from NCBI SRA of[Escherichia coli](https://www.ncbi.nlm.nih.gov/sra/SRX10122872[accn]) to test the Bactopia pipeline, i'll run with the -with-dag to generate dag files and analyse the whole data process inside bactopia workflow.
+
+ I've created dag.dot files to understand better how Bactopia works. The flowchart contains a lot of useful information.
+
+## 2 step: Adding Stubs to process
+Adding stubs is an important step on pipeline engineering process, because you can separate nextflow process to other tools process(scripts, shell commands or tools like fastqc).
+
+Current Status = (1/24) stubs added to process
+
+## 3 Step: Update all modules inclusion
 
 
-## 2 Step: Update all modules inclusion
-## 3 Step: Update all process
+## 4 Step: Update all process
 There are 24 process on the pipeline.\
 Current Status = (0/24) processes updated
 
-## 4 Step: Modifying Workflow scope to ensure process usage
+## 5 Step: Modifying Workflow scope to ensure process usage
