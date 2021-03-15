@@ -13,9 +13,15 @@
 ## 2 step: Adding Stubs to process
 Adding stubs is an important step on pipeline engineering process, because you can separate nextflow process to other tools process(scripts, shell commands or tools like fastqc).
 
-Current Status = (1/24) stubs added to process
+Current Status = (24/24) stubs added to process
 
-## 3 Step: Update all modules inclusion
+I've runned the main.nf using -stub-run parameter and had a complete run, with no error messages (all the processes were called on this run) and the pull request for adding stubs were finished
+
+## 3 Step: Update modules
+
+I'll start to turn processes into modules to make the main.nf more redable and the process will be called as modules.
+
+Current Status = (1/24) process modules added
 
 
 ## 4 Step: Update all process
