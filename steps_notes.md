@@ -29,7 +29,14 @@ Current Status = (24/24) process modules added
 
 
 ## 4 Step: Update all process
+I updated the syntax of each process to DSL2
 There are 24 process on the pipeline.\
 Current Status = (0/24) processes updated
 
-## 5 Step: Modifying Workflow scope to ensure process usage
+## 5 step: Adding testing to all process
+I used a complete run of bactopia to create testfiles to each module
+
+
+## 6 Step: Modifying Workflow scope to ensure process usage
+I've scratched a basic workflow following the inputs/outputs of bactopia and trying to mantain the same Channels when possible
+
